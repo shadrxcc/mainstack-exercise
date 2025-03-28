@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-RegularItalic.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-SemiboldItalic.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Degular Display";
+  src: url("/assets/Degular/DegularDisplay-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+:root {
+  --font-degular: "Degular Display", sans-serif;
+  --rounded-full: 100px;
+  --main-grey: #56616b;
+  --main-black: #131316;
+  --main-lightgrey: #eff1f6;
+}
+
+@theme inline {
+  --radius-100: var(--rounded-full);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-main-grey: var(--main-grey);
+  --color-main-black: var(--main-black);
+  --color-main-lightgrey: var(--main-lightgrey);
+  --color-monochrome-black: linear-gradient(
+    138.98deg,
+    #5c6670 2.33%,
+    #131316 96.28%
+  );
+  --font-degular: var(--font-degular);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --shadow-custom: 0px 2px 6px rgba(45, 59, 67, 0.06),
+    0px 2px 4px rgba(45, 59, 67, 0.05);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+*,
+body {
+  font-family: var(--font-degular);
+}
