@@ -38,7 +38,7 @@ const NavLink = ({
 
 const Navbar = () => {
   return (
-    <div className="p-4 fixed w-full left-0">
+    <div className="p-4 fixed top-0 z-[999] w-full left-0">
       <nav className="py-3.5 bg-white flex items-center justify-between shadow-custom rounded-100 border-2 border-white px-6">
         <Link to={`/`}>
           <img src="/mainstack-logo.svg" alt="mainstack logo" />
