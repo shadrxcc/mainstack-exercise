@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import DashboardLayout from "../components/layout/dashboard-layout";
+import Revenue from "../pages/revenue";
 
 const router = createBrowserRouter([
   {
@@ -9,9 +10,7 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
-    children: [
-        { path: "", element: "Revenue" },
-    ],
+    children: [{ path: "", element: <Revenue /> }],
   },
 ]);
 

@@ -1,6 +1,6 @@
 const Sidebar = () => {
   return (
-    <div className="bg-white w-12 flex flex-col gap-y-2 rounded-100 h-full max-h-[184px] p-1 shadow-custom">
+    <div className="bg-white w-12 flex fixed flex-col gap-y-2 rounded-100 h-full max-h-[184px] p-1 shadow-custom">
       {sideBarLinks.map((link) => (
         <div
           key={link.label}
