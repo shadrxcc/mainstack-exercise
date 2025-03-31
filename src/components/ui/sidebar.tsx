@@ -1,13 +1,17 @@
 const Sidebar = () => {
   return (
-    <div className="bg-white w-12 flex fixed flex-col gap-y-2 rounded-100 h-full max-h-[184px] p-1 shadow-custom">
+    <div className="bg-white w-12 flex fixed flex-col top-[35%] bottom-[50%] gap-y-2 rounded-100 h-full max-h-[184px] p-1 shadow-custom">
       {sideBarLinks.map((link) => (
-        <div
+        <button
           key={link.label}
-          className="flex flex-col items-center justify-center p-2"
+          className="flex flex-col rounded-full items-center justify-center h-10 w-10 hover:bg-main-lightgrey transition ease-in-out duration-[400ms]"
         >
-          <img src={link.icon} alt={link.label} />
-        </div>
+          <img
+            className="grayscale hover:grayscale-0 transition ease-in-out duration-[400ms]"
+            src={link.icon}
+            alt={link.label}
+          />
+        </button>
       ))}
     </div>
   );

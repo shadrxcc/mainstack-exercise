@@ -21,12 +21,16 @@ export type ButtonProps = React.DetailedHTMLProps<
 > &
   ButtonOptions;
 
-export type ButtonVariant = "solid" | "light-grey";
+export type ButtonVariant = "solid" | "light-grey" | "outline" | "none";
 
 const getVariant = (variant: ButtonVariant) => {
   switch (variant) {
     case "light-grey":
       return "bg-main-lightgrey text-main-black";
+    case "none":
+      return "bg-transparent text-main-black";
+    case "outline":
+      return "bg-transparent text-main-black border border-main-lightgrey";
     default:
       return "bg-main-black text-white";
   }
@@ -54,7 +58,7 @@ const Button = forwardRef<Ref, ButtonProps>((props, ref) => {
   };
 
   const merged = clsx(
-    "px-13 py-3.5 h-fit rounded-100 text-sm font-semibold transition ease-in-out justify-center w-full items-center focus:!outline-none !outline-none focus:!ring-0 !ring-0 inline-flex gap-2",
+    "px-13 py-3.5 h-fit rounded-100 text-sm font-semibold cursor-pointer transition ease-in-out justify-center w-full items-center focus:!outline-none !outline-none focus:!ring-0 !ring-0 inline-flex gap-2",
     getVariant(variant),
     "disabled:opacity-50",
     className

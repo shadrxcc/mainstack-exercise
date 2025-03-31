@@ -129,6 +129,7 @@
   --color-primary: var(--primary);
   --shadow-custom: 0px 2px 6px rgba(45, 59, 67, 0.06),
     0px 2px 4px rgba(45, 59, 67, 0.05);
+  --shadow-custom-2: 0px 12px 24px 0px rgba(219, 222, 229, 0.1);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -158,4 +159,15 @@
 *,
 body {
   font-family: var(--font-degular);
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button,
+button:focus {
+  outline: none;
 }
