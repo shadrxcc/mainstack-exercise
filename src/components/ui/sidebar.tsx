@@ -12,9 +12,9 @@ const Sidebar = () => {
         {sideBarLinks.map((link) => (
           <Tooltip key={link.label}>
             <TooltipTrigger>
-              <button className="flex flex-col rounded-full items-center justify-center h-10 w-10 hover:bg-main-lightgrey transition ease-in-out duration-[400ms]">
+              <button className="flex flex-col grayscale hover:grayscale-0 rounded-full items-center justify-center h-10 w-10 hover:bg-main-lightgrey transition ease-in-out duration-[400ms]">
                 <img
-                  className="grayscale hover:grayscale-0 transition ease-in-out duration-[400ms]"
+                  className="transition ease-in-out duration-[400ms]"
                   src={link.icon}
                   alt={link.label}
                 />
