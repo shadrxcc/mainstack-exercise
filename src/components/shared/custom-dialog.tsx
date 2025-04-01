@@ -20,8 +20,6 @@ const DialogComponent = ({ isOpen, onClose, children }: DialogProps) => {
     };
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   return (
     <AnimatePresence mode="wait">
       {isOpen && (
