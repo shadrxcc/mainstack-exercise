@@ -31,6 +31,7 @@ export enum TransactionType {
   Chargebacks = "Chargebacks",
   Cashbacks = "Cashbacks",
   ReferAndEarn = "Refer & Earn",
+  Deposit = "Deposit"
 }
 
 export enum TransactionStatus {
