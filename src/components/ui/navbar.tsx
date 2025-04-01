@@ -112,7 +112,7 @@ const Navbar = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="fixed top right-4 mt-6 z-[9999] w-76 shadow-custom bg-white rounded-xl p-4 duration-300"
+                  className="fixed top right-4 mt-6 z-[9999] w-full max-w-80 shadow-custom bg-white rounded-xl p-4 duration-300"
                 >
                   <div className="flex items-center gap-x-2 mb-3">
                     <CustomAvatar
