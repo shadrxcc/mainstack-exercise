@@ -146,6 +146,7 @@ const Navbar = () => {
                         key={option.name}
                         className="p-3.5 text-sm font-medium text-main-black cursor-pointer flex items-center gap-x-3 hover:bg-main-lightgrey rounded-lg transition-all ease-in-out duration-300"
                       >
+                        <img src={option.icon} alt={option.name} />
                         {option.name}
                       </button>
                     ))}
@@ -193,23 +194,30 @@ const navItems = [
 const accountDropdown = [
   {
     name: "Settings",
+    icon: "/assets/settings.svg",
   },
   {
     name: "Purchase History",
+    icon: "/assets/scroll-text.svg",
   },
   {
     name: "Refer and Earn",
+    icon: "/assets/briefcase-business.svg",
   },
   {
     name: "Integrations",
+    icon: "/assets/layout-grid.svg",
   },
   {
     name: "Report Bug",
+    icon: "/assets/bug.svg",
   },
   {
     name: "Switch Account",
+    icon: "/assets/settings.svg",
   },
   {
     name: "Sign Out",
+    icon: "/assets/log-out.svg",
   },
 ];
