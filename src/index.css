@@ -160,6 +160,9 @@
 body {
   font-family: var(--font-degular);
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 button {
@@ -170,4 +173,13 @@ button {
 button,
 button:focus {
   outline: none;
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

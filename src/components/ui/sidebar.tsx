@@ -1,19 +1,33 @@
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./tooltip";
+
 const Sidebar = () => {
   return (
-    <div className="bg-white w-12 flex fixed flex-col top-[35%] bottom-[50%] gap-y-2 rounded-100 h-full max-h-[184px] p-1 shadow-custom">
-      {sideBarLinks.map((link) => (
-        <button
-          key={link.label}
-          className="flex flex-col rounded-full items-center justify-center h-10 w-10 hover:bg-main-lightgrey transition ease-in-out duration-[400ms]"
-        >
-          <img
-            className="grayscale hover:grayscale-0 transition ease-in-out duration-[400ms]"
-            src={link.icon}
-            alt={link.label}
-          />
-        </button>
-      ))}
-    </div>
+    <TooltipProvider>
+      <div className="bg-white w-12 flex fixed flex-col top-[35%] bottom-[50%] gap-y-2 rounded-100 h-full max-h-[195px] p-1 shadow-custom">
+        {sideBarLinks.map((link) => (
+          <Tooltip key={link.label}>
+            <TooltipTrigger>
+              <button className="flex flex-col rounded-full items-center justify-center h-10 w-10 hover:bg-main-lightgrey transition ease-in-out duration-[400ms]">
+                <img
+                  className="grayscale hover:grayscale-0 transition ease-in-out duration-[400ms]"
+                  src={link.icon}
+                  alt={link.label}
+                />
+              </button>
+            </TooltipTrigger>
+
+            <TooltipContent sideOffset={6} side="right">
+              <p>{link.label}</p>
+            </TooltipContent>
+          </Tooltip>
+        ))}
+      </div>
+    </TooltipProvider>
   );
 };
 

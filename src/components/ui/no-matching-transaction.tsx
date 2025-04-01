@@ -1,6 +1,10 @@
 import Button from "../shared/button";
 
-const NoMatchingTransaction = () => {
+const NoMatchingTransaction = ({
+  handleClear,
+}: {
+  handleClear: () => void;
+}) => {
   return (
     <div className="flex flex-col gap-y-8 max-w-[369px] mx-auto">
       <span className="w-12 h-12 inline-flex items-center justify-center rounded-2xl bg-main-lightgrey">
@@ -16,7 +20,9 @@ const NoMatchingTransaction = () => {
         </p>
       </div>
 
-      <Button variant="light-grey" className="!w-fit">Clear Filter</Button>
+      <Button onClick={handleClear} variant="light-grey" className="!w-fit">
+        Clear Filter
+      </Button>
     </div>
   );
 };

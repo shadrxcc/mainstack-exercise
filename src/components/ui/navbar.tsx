@@ -91,8 +91,8 @@ const Navbar = () => {
             </PopoverButton>
 
             <PopoverPanel
-              anchor={"bottom end"}
-              className={`transition-all flex flex-col gap-y-5 z-[9999] w-full !max-w-76 shadow-custom mt-7 bg-white rounded-xl p-4 ease-in-out duration-500`}
+              anchor={"bottom"}
+              className={`transition-all flex flex-col gap-y-5 z-[9999] w-full !max-w-76 shadow-custom mt-7 bg-white rounded-xl p-4 duration-500`}
             >
               <div className="flex items-center gap-x-2">
                 <CustomAvatar
