@@ -8,6 +8,7 @@ import NoMatchingTransaction from "./no-matching-transaction";
 import { Period } from "../../services/models/shared.model";
 import { Option } from "../shared/multi-select";
 import { TransactionData } from "../../services/models/revenue.model";
+import TransactionLoader from "./transaction-loader";
 
 export interface FilterState {
   period: Period | null;
@@ -29,7 +30,7 @@ const Transactions = () => {
   const [openFilter, setFilter] = useState(false);
   const [filters, setFilters] = useState<FilterState>(initialFilterState);
 
-  const { data: transactions } = useQuery({
+  const { data: transactions, isPending } = useQuery({
     queryKey: ["transactions"],
     queryFn: fetchTransactions,
   });
@@ -152,7 +153,11 @@ const Transactions = () => {
       </div>
 
       <div className="flex flex-col gap-y-6">
-        {hasTransactions ? (
+        {isPending ? (
+          Array.from({ length: 5 }).map((_, index) => (
+            <TransactionLoader key={index} />
+          ))
+        ) : hasTransactions ? (
           filteredTransactions.map((transaction, index) => (
             <Transaction key={index} {...transaction} />
           ))

@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { DatePicker } from "../shared/datepicker";
 import { MultiSelect } from "../shared/multi-select";
 import { FilterState } from "./transactions";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function TransactionsFilter({
   onClose,
@@ -24,6 +24,21 @@ function TransactionsFilter({
   onApply: (filter: FilterState) => void;
 }) {
   const [filters, setFilters] = useState<FilterState>(filterState);
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 640);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const animationValues = useMemo(() => {
+    return {
+      initial: { opacity: 0, x: 50 },
+      animate: { opacity: 1, x: isMobile ? 0 : -10 },
+      exit: { opacity: 0, x: 50 },
+    };
+  }, [isMobile]);
 
   const handleClear = () => {
     setFilters({
@@ -45,10 +60,10 @@ function TransactionsFilter({
   return (
     <DialogComponent isOpen={isOpen} onClose={onClose}>
       <motion.div
-        className="sm:max-w-[456px] fixed flex flex-col right-0 min-h-[98%] w-full bg-white rounded-[20px] shadow-custom-2"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: -10 }}
-        exit={{ opacity: 0, x: 50 }}
+        className="sm:max-w-[456px] fixed flex flex-col right-0 overflow-y-scroll no-scroll h-full sm:min-h-[98%] w-full bg-white rounded-[20px] shadow-custom-2"
+        initial={animationValues.initial}
+        animate={animationValues.animate}
+        exit={animationValues.exit}
         transition={{
           duration: 0.4,
           ease: "easeInOut",
@@ -63,16 +78,16 @@ function TransactionsFilter({
           <Button
             variant="none"
             onClick={onClose}
-            className="!p-0 ml-auto !w-fit"
+            className="!p-0 ml-auto !w-10 !h-10 !rounded-full hover:!bg-main-lightgrey"
           >
             <img src="/assets/close.svg" alt="close icon" />
           </Button>
         </div>
 
-        <div className="flex flex-col flex-1 justify-between pb-5 px-6">
+        <div className="flex flex-col gap-y-16 flex-1 justify-between pb-5">
           <div className="flex flex-col gap-y-6">
-            <div className="overflow-x-auto pb-2">
-              <div className="flex items-center gap-x-3 min-w-min">
+            <div className="!overflow-x-auto no-scroll px-6 pb-2">
+              <div className="flex items-center gap-x-3 min-w-max">
                 {Object.values(Period).map((period) => (
                   <Button
                     onClick={() => handlePeriodSelect(period)}
@@ -93,7 +108,7 @@ function TransactionsFilter({
               </div>
             </div>
 
-            <div className="flex flex-col gap-y-3">
+            <div className="grid px-6 gap-3">
               <p className="font-semibold text-base text-main-grey">
                 Date Range
               </p>
@@ -113,34 +128,40 @@ function TransactionsFilter({
               </div>
             </div>
 
-            <MultiSelect
-              selected={filterState.types}
-              onChange={(selected) =>
-                setFilters({ ...filters, types: selected })
-              }
-              placeholder="Select Transaction Type"
-              label="Transaction Type"
-              options={Object.values(TransactionType).map((type, index) => ({
-                id: index,
-                name: type,
-              }))}
-            />
+            <div className="px-6">
+              <MultiSelect
+                selected={filters.types}
+                onChange={(selected) =>
+                  setFilters({ ...filters, types: selected })
+                }
+                placeholder="Select Transaction Type"
+                label="Transaction Type"
+                options={Object.values(TransactionType).map((type, index) => ({
+                  id: index,
+                  name: type,
+                }))}
+              />
+            </div>
 
-            <MultiSelect
-              selected={filterState.status}
-              onChange={(selected) =>
-                setFilters({ ...filters, status: selected })
-              }
-              placeholder="Select Transaction Status"
-              label="Transaction Status"
-              options={Object.values(TransactionStatus).map((type, index) => ({
-                id: index,
-                name: type,
-              }))}
-            />
+            <div className="px-6">
+              <MultiSelect
+                selected={filters.status}
+                onChange={(selected) =>
+                  setFilters({ ...filters, status: selected })
+                }
+                placeholder="Select Transaction Status"
+                label="Transaction Status"
+                options={Object.values(TransactionStatus).map(
+                  (type, index) => ({
+                    id: index,
+                    name: type,
+                  })
+                )}
+              />
+            </div>
           </div>
 
-          <div className="flex w-full  mt-auto items-center gap-x-3">
+          <div className="flex w-full px-6 mt-auto items-center gap-x-3">
             <Button
               onClick={handleClear}
               type="button"

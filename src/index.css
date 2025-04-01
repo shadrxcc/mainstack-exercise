@@ -156,9 +156,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-*,
 body {
   font-family: var(--font-degular);
+  box-sizing: border-box;
   overflow-x: hidden;
   &::-webkit-scrollbar {
     display: none;

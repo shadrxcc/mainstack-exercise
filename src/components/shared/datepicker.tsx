@@ -68,7 +68,9 @@ export function DatePicker({
 
   return (
     <div className={cn("grid w-full gap-3", className)} {...props}>
-      <p className="font-semibold text-base text-main-grey">{label}</p>
+      {label && (
+        <p className="font-semibold text-base text-main-grey">{label}</p>
+      )}
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <button
@@ -76,16 +78,27 @@ export function DatePicker({
             className={cn(
               "flex items-center justify-between transition-all ease-in-out duration-[250ms] border text-sm font-medium px-4 py-3.5 rounded-xl w-full text-left",
               buttonClassName,
-              open ? "bg-white border-main-black border-2" : "border-main-lightgrey  bg-main-lightgrey"
+              open
+                ? "bg-white border-main-black border-2"
+                : "border-main-lightgrey  bg-main-lightgrey"
               //   error ? "border-danger focus:!ring-0" : "",
               //   !date && "text-muted-foreground"
             )}
           >
             {date ? format(date, dateFormat) : <span>{placeholder}</span>}
-            <img className={`${open ? "rotate-180": "rotate-0"} transition-all ease-in-out duration-[450ms]`} src="/assets/expand_more.svg" alt="dropdown" />
+            <img
+              className={`${
+                open ? "rotate-180" : "rotate-0"
+              } transition-all ease-in-out duration-[450ms]`}
+              src="/assets/expand_more.svg"
+              alt="dropdown"
+            />
           </button>
         </PopoverTrigger>
-        <PopoverContent align="start" className="!w-[412px] !bg-white mt-1 !rounded-xl shadow-custom !z-9999 !p-[33.7px]">
+        <PopoverContent
+          align="start"
+          className="!w-[412px] !bg-white mt-1 !rounded-xl shadow-custom !z-9999 !p-[33.7px]"
+        >
           <Calendar
             mode="single"
             selected={date}
