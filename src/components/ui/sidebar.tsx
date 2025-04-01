@@ -21,7 +21,7 @@ const Sidebar = () => {
               </button>
             </TooltipTrigger>
 
-            <TooltipContent sideOffset={6} side="right">
+            <TooltipContent sideOffset={14} side="right">
               <p>{link.label}</p>
             </TooltipContent>
           </Tooltip>
