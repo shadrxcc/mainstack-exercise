@@ -60,7 +60,7 @@ function TransactionsFilter({
   return (
     <DialogComponent isOpen={isOpen} onClose={onClose}>
       <motion.div
-        className="sm:max-w-[456px] fixed flex flex-col right-0 overflow-y-scroll no-scroll h-full sm:min-h-[98%] w-full bg-white rounded-[20px] shadow-custom-2"
+        className="sm:max-w-[456px] fixed flex flex-col right-0 overflow-y-scroll no-scroll h-full sm:max-h-[98%] w-full bg-white rounded-[20px] shadow-custom-2"
         initial={animationValues.initial}
         animate={animationValues.animate}
         exit={animationValues.exit}
