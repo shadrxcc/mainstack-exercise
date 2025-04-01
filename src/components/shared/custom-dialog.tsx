@@ -28,7 +28,7 @@ const DialogComponent = ({ isOpen, onClose, children }: DialogProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 z-[999] flex items-center justify-center bg-main-lightgrey/80"
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-[#E8E8E8]/70"
         >
           <motion.div
             initial={{ opacity: 0 }}
